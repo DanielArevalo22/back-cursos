@@ -49,5 +49,16 @@ namespace back_cursos.Controllers
         {
             return Ok(courseService.updateCourse(c,id));
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult<string> deleteCourse(int id)
+        {
+            if (courseService.deleteCourse(id))
+            {
+                return Ok("CURSO ELIMINADO CORRECTAMENTE");
+            } 
+
+            return NotFound("NO SE ENCONTRO CURSO CON ESE ID");
+        }
     }
 }

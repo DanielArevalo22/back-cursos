@@ -31,8 +31,9 @@ namespace back_cursos.services
                 throw new ArgumentException("El id del curso debe ser mayor a 0.");
 
             Course? courF = null;
-            foreach(Course c in courses){
-                if(c.idCo == id)
+            foreach (Course c in courses)
+            {
+                if (c.idCo == id)
                 {
                     courF = c;
                     break;
@@ -46,19 +47,22 @@ namespace back_cursos.services
             if (c == null)
                 throw new ArgumentNullException(nameof(c), "El curso no puede ser nulo.");
 
-            validateCourseData(c.name,c.teachName,c.slots,c.takenSlots);
+            validateCourseData(c.name, c.teachName, c.slots, c.takenSlots);
 
             //Obtenemos la longitud y le agregamos un +1 porque el array inicia desde cero, asi obtenemos siguiente ID
             int nextId = courses.Count + 1;
-            
+
             //Mandamos el estado del curso como la comparacion de que si los cupos son mayores a los cupos tomados, eso retorna
             //true o false
-            Course nc = new Course{idCo = nextId, 
-                                   name = c.name,
-                                   teachName = c.teachName,
-                                   available = c.takenSlots < c.slots,
-                                   slots = c.slots,
-                                   takenSlots = c.takenSlots};
+            Course nc = new Course
+            {
+                idCo = nextId,
+                name = c.name,
+                teachName = c.teachName,
+                available = c.takenSlots < c.slots,
+                slots = c.slots,
+                takenSlots = c.takenSlots
+            };
             courses.Add(nc);
             return nc;
         }
@@ -107,6 +111,20 @@ namespace back_cursos.services
 
             if (takenSlots > slots)
                 throw new ArgumentException("Los cupos tomados no pueden superar los cupos totales.");
+        }
+        public bool deleteCourse(int id)
+        {
+            if (id <= 0)
+                throw new ArgumentException("El id del curso debe ser mayor a 0.");
+
+            Course? course = findCourseById(id);
+
+            if (course == null)
+                return false;
+
+            courses.Remove(course);
+
+            return true;
         }
     }
 }
