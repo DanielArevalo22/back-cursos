@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ghKnu2rDePs=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jarevalo\\Desktop\\Nueva carpeta\\PROYECTO ANGULAR\\back-cursos\\back-cursos.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jarevalo\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.7\\microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
+    "C:\\Users\\jarevalo\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
